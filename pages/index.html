@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+<meta charset="UTF-8">
+<title>MK Spinners by Masoom</title>
+<link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/mk-blocker.css">
+</head>
+<body class="bg-primary">
+<div class="container" ng-controller="testCtrl">
+	<h2 class="text-uppercase text-center">MK Blocker</h2>
+	{{blocked}}
+	<mk-blocker></mk-blocker>
+</div>
+<script src="../bower_components/angular/angular.min.js"></script>
+<script src="../js/mkBlocker.js"></script>
+<script>
+
+var app = angular.module('app',['mkBlock']);
+app.controller('testCtrl', function($scope, mkBlockerAPI){
+	// unblock();
+	// console.log(mkBlockerAPI.blockIt());
+	console.log(mkBlockerAPI.unblockIt());
+	mkBlockerAPI.blockIt()
+	mkBlockerAPI.unblockIt()
+});
+</script>
+</body>
+</html>
