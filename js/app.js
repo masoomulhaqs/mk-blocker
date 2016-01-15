@@ -1,8 +1,7 @@
 var app = angular.module('app',['mkBlock']);
 app.controller('testCtrl', function($scope, mkBlockerAPI){
-	// unblock();
-	// console.log(mkBlockerAPI.blockIt());
-	console.log(mkBlockerAPI.unblockIt());
-	mkBlockerAPI.blockIt()
-	mkBlockerAPI.unblockIt()
+	// mkBlockerAPI.blockIt();
+	console.log(mkBlockerAPI.isBlocked);
+	console.log(mkBlockerAPI.blockUI());
+	console.log(mkBlockerAPI.unblockUI());
 });
