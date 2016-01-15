@@ -1,6 +1,6 @@
 var mkBlock = angular.module('mkBlock',[]);
 
-mkBlock.service('mkBlockerAPI', function() {
+mkBlock.service('mkBlocker', function() {
 	this.isBlocked = true;
 	this.blockUI = function(){
 		this.isBlocked = true;
@@ -16,15 +16,15 @@ mkBlock.service('mkBlockerAPI', function() {
 	};
 });
 
-mkBlock.controller('mkBlockCtrl', function($scope, mkBlockerAPI){
+mkBlock.controller('mkBlockCtrl', function($scope, mkBlocker){
 	$scope.$watch(function(){
-		return mkBlockerAPI.isBlocked;
+		return mkBlocker.isBlocked;
 	}, function(){
-		$scope.isBlocked = mkBlockerAPI.isBlocked;
+		$scope.isBlocked = mkBlocker.isBlocked;
 	});
 });
 
-mkBlock.directive('mkBlocker', function(mkBlockerAPI){
+mkBlock.directive('mkBlockerElem', function(mkBlocker){
 	return{
 		restrict: 'E',
 		replace: true,

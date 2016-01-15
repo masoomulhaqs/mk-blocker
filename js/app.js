@@ -1,16 +1,17 @@
 var app = angular.module('app', ['mkBlock']);
-app.controller('testCtrl', function($scope, mkBlockerAPI){
+app.controller('testCtrl', function($scope, mkBlocker){
 	$scope.block = function(){
-		mkBlockerAPI.blockUI();
-		console.log('block: '+mkBlockerAPI.isBlocked);
+		mkBlocker.blockUI();
+		console.log('block: ' + mkBlocker.isBlocked);
 	};
+
 	$scope.unblock = function(){
-		mkBlockerAPI.unblockUI();
-		console.log('unblock: '+mkBlockerAPI.isBlocked);
+		mkBlocker.unblockUI();
+		console.log('unblock: ' + mkBlocker.isBlocked);
 	};
 
 	$scope.toggleBlock = function(){
-		mkBlockerAPI.toggleUI();
-		console.log('unblock: ' + mkBlockerAPI.isBlocked);
+		mkBlocker.toggleUI();
+		console.log('toggle block: ' + mkBlocker.isBlocked);
 	};
 });
