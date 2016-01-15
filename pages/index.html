@@ -5,12 +5,19 @@
 	<title>MK Blocker by Masoom</title>
 	<link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="../css/mk-blocker.css">
+	<style>
+	button{
+		position: relative;
+		z-index: 999999;
+	}
+	</style>
 </head>
 <body class="bg-primary" data-ng-controller="testCtrl">
 	<div class="container text-center">
 		<h2 class="text-uppercase">MK Blocker</h2>
-		<p>{{blocked}}</p>
-		<button type="button" class="btn btn-default">BLOCK <small>or</small> UNBLOCK</button>
+		<p>{{isBlocked}}</p>
+		<button type="button" class="btn btn-default" data-ng-click="block()">BLOCK </button>
+		<button type="button" class="btn btn-default" data-ng-click="unblock()">UNBLOCK</button>
 	</div>
 	<mk-blocker></mk-blocker>
 	<script src="../bower_components/angular/angular.min.js"></script>
