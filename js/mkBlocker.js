@@ -1,6 +1,6 @@
 var mkBlock = angular.module('mkBlock',[]);
 
-mkBlock.service('mkBlockerAPI', function() {
+mkBlock.service('mkBlockerAPI', function($rootScope) {
 	this.isBlocked = true;
 	this.blockUI = function(){
 		this.isBlocked = true;
@@ -13,18 +13,18 @@ mkBlock.service('mkBlockerAPI', function() {
 });
 
 mkBlock.controller('mkBlockCtrl', function($scope, mkBlockerAPI){
-	var api = mkBlockerAPI;
-	$scope.isBlocked = api.isBlocked;
-	toggleit = function(){
-		console.log('key');
-	};
-	$scope.$watch('api.isBlocked', toggleit());
+	$scope.$watch(function(){
+		return mkBlockerAPI.isBlocked;
+	}, function(){
+		$scope.isBlocked = mkBlockerAPI.isBlocked;
+	});
 });
+
 mkBlock.directive('mkBlocker', function(mkBlockerAPI){
 	return{
 		restrict: 'E',
 		replace: true,
 		controller: 'mkBlockCtrl',
-		template: '<div data-ng-if="!isBlocked" class="mk-overlay-wrap"><div class="mk-overlay"><p>loading....</p><span class="mk-spin"></span></div></div>'
+		template: '<div data-ng-if="isBlocked" class="mk-overlay-wrap"><div class="mk-overlay"><p>loading....</p><span class="mk-spin"></span></div></div>'
 	};
 });
