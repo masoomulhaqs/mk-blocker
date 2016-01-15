@@ -6,4 +6,5 @@ Install Bower dependencies
     bower install
 ```
 
-And, open `index.html` file to see the magic of mkBlocker
+And, open `\pages\index.html` file the angular mkBlocker.
+
