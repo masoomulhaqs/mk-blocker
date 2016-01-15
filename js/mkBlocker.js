@@ -1,6 +1,6 @@
 var mkBlock = angular.module('mkBlock',[]);
 
-mkBlock.service('mkBlockerAPI', function($rootScope) {
+mkBlock.service('mkBlockerAPI', function() {
 	this.isBlocked = true;
 	this.blockUI = function(){
 		this.isBlocked = true;
@@ -8,6 +8,10 @@ mkBlock.service('mkBlockerAPI', function($rootScope) {
 	};
 	this.unblockUI = function(){
 		this.isBlocked = false;
+		return this.isBlocked;
+	};
+	this.toggleUI = function(){
+		this.isBlocked = !this.isBlocked;
 		return this.isBlocked;
 	};
 });
