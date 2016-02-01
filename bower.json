@@ -1,11 +1,11 @@
 {
-  "name": "mkBlocker",
-  "homepage": "https://github.com/lazyfactor/mkBlocker",
+  "name": "mk-bloker",
+  "homepage": "https://github.com/masoomulhaqs/mk-blocker",
   "authors": [
-    "Masoom"
+    "Masoom Ulhaq S"
   ],
   "description": "",
-  "main": "",
+  "main": "js/mk-blocker.js",
   "moduleType": [],
   "license": "MIT",
   "ignore": [
@@ -13,10 +13,22 @@
     "node_modules",
     "bower_components",
     "test",
-    "tests"
+    "tests",
+    "scss",
+    "pages",
+    "config.rb"
   ],
   "dependencies": {
-    "angular": "~1.4.8",
+    "angular": "~1.4.8"
+  },
+  "keywords": [
+    "ui",
+    "blocker",
+    "javascript",
+    "angularjs"
+  ],
+  "devDependencies": {
+    "font-awesome": "fontawesome#~4.5.0",
     "bootstrap": "~3.3.6"
   }
 }
