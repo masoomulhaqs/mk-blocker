@@ -1,15 +1,21 @@
-# mkBlocker
+# mk-blocker
 Angular Loader, Blocker, Unblocker
 
-Clone this repo
+##### Install with bower	
 ```
-    git clone https://github.com/masoomulhaqs/mkBlocker.git
-```
-
-Install Bower dependencies
-```
-    bower install
+    $ bower install mk-blocker
 ```
 
-And, open `/pages/index.html` file the angular mkBlocker.
+##### Add dependency to your applicaiton
+```javascript
+	angular.module('yourModule', ['mkBlock']);
+```
 
+##### Add mkBlocker service to your controller
+```javascript
+	.controller('yourCtrl', function($scope, mkBlocker){
+		mkBlocker.blockUI(); // to block the UI
+		mkBlocker.unblockUI(); // to unblock the UI
+		mkBlocker.toggleUI(); // to toggle the UI blocking
+	});
+```
