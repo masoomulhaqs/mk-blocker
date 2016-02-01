@@ -15,8 +15,10 @@
     "bower_components",
     "test",
     "tests",
+    "js/app.js",
     "scss",
     "pages",
+    "package.json",
     "config.rb"
   ],
   "dependencies": {
