@@ -13,7 +13,7 @@ Angular Loader, Blocker, Unblocker
 
 ##### Add mkBlocker service to your controller
 ```javascript
-	.controller('yourCtrl', function($scope, mkBlocker){
+	.controller('yourCtrl', function(mkBlocker){
 		mkBlocker.blockUI(); // to block the UI
 		mkBlocker.unblockUI(); // to unblock the UI
 		mkBlocker.toggleUI(); // to toggle the UI blocking
