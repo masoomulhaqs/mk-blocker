@@ -1,0 +1,35 @@
+{
+  "name": "bootstrap-overrides",
+  "version": "1.0.2",
+  "homepage": "https://github.com/masoomulhaqs/bootstrap-overrides",
+  "authors": [
+    "Masoom Ulhaq S"
+  ],
+  "description": "a simple css which overrides bootsrap styles to help improve your css and UI",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    ".sass-cache",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "scss",
+    "config.rb",
+    "gulpfile.js"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.6"
+  },
+  "_release": "1.0.2",
+  "_resolution": {
+    "type": "version",
+    "tag": "v1.0.2",
+    "commit": "78f1b7ac862c0a23b8f45c1fa21bad1c215b4d35"
+  },
+  "_source": "git://github.com/masoomulhaqs/bootstrap-overrides.git",
+  "_target": "1.0.2",
+  "_originalSource": "bootstrap-overrides"
+}
