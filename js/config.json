@@ -1,0 +1,31 @@
+{
+	"title": "MK Blocker by Masoom",
+	"description": "An AngularJS directive for input which only allow numbers",
+	"keywords": "masoom, masoomulhaq, ui, angularjs, ui blocker, js, jquery, javascript",
+	"avatar": "https://avatars.githubusercontent.com/u/9144182?v=3&amp;s=25",
+	"page": {
+		"title": "MK Blocker",
+		"sub-title": "An AngularJS UI Blocker"
+	},
+	"socialMediaList": [{
+		"name": "github",
+		"url": "https://github.com/masoomulhaqs",
+		"icon": "fa fa-github"
+	},{
+		"name": "twitter",
+		"url": "https://twitter.com/smasoomulhaq",
+		"icon": "fa fa-twitter"
+	},{
+		"name": "google-plus",
+		"url": "https://plus.google.com/u/0/113179001864450969005",
+		"icon": "fa fa-google-plus"
+	},{
+		"name": "codepen",
+		"url": "http://codepen.io/masoomulhaqs/",
+		"icon": "fa fa-codepen"
+	},{
+		"name": "jsfiddle",
+		"url": "http://jsfiddle.net/user/masoomulhaqs/",
+		"icon": "fa fa-jsfiddle"
+	}]
+}
