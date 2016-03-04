@@ -16,8 +16,10 @@
     "test",
     "tests",
     "js/app.js",
+    "js/config.json",
     "scss",
     "pages",
+    "fragments",
     "package.json",
     "config.rb"
   ],

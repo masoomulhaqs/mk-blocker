@@ -3,7 +3,7 @@ var app = angular.module('app', ['ngRoute', 'mkBlock']);
 app.config(['$routeProvider', function ($routeProvider) {
 	$routeProvider.
 		when('/', {
-			templateUrl: '/fragments/main.html'
+			templateUrl: 'fragments/main.html'
 		}).
 		otherwise({
 			redirectTo: '/'
