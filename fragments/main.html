@@ -1,0 +1,51 @@
+<div class="container">
+	<div class="col-sm-8 col-sm-offset-2">
+		<article>
+			<div class="content-group">
+				<h1 class="no-margin-bottom">MK Blocker</h1>
+				<p>An AngularJS UI blocker</p>
+			</div>
+			<div class="content-group">
+				<h4 class="title-secondary">Working demo: </h4>
+				<div class="text-left">
+					<p>Is UI blocked? <strong data-ng-if="isBlocked">Yes</strong> <strong data-ng-if="!isBlocked">No</strong> </p>
+					<p>
+						<button type="button" class="btn btn-danger" 
+							data-ng-click="block()">
+							<span class="sr-only">Block</span>
+							<i class="fa fa-ban"></i>
+						</button>
+						<button type="button" class="btn btn-danger" 
+							data-ng-click="unblock()">
+							<span class="sr-only">Unblock</span>
+							<i class="fa fa-unlock-alt"></i>
+						</button>
+						<button type="button" class="btn btn-danger" 
+							data-ng-click="toggleBlock()">
+							<span class="sr-only">Toggle</span>
+							<i class="fa fa-toggle-on" data-ng-class="{'fa-toggle-on':isBlocked, 'fa-toggle-off':!isBlocked}"></i>
+						</button>
+					</p>
+				</div>
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="form-inline">
+							<input type="color" id="selectedColor" class="form-control input-sm"
+								data-ng-model="selectedColor"
+								data-ng-change="setSpinColor(selectedColor)">
+							<label for="selectedColor">Change Spinner Color: {{selectedColor || 'Default Color'}}</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="content-group">
+				<h4 class="title-secondary">How to use? </h4>
+				<p>The detailed description is in <a href="https://github.com/masoomulhaqs/mk-blocker#mk-blocker" target="_blank">here</a>.</p>
+			</div>
+			<div class="content-group">
+				<h4 class="title-secondary">Where is this useful? </h4>
+				<p>It can be used while content is still loading or while any activity is happening ...</p>
+			</div>
+		</article>
+	</div>
+</div>

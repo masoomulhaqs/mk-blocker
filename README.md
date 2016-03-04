@@ -6,12 +6,13 @@ Angular Loader, Blocker, Unblocker
     $ bower install mk-blocker
 ```
 
-##### Add dependency to your applicaiton
+##### Inject dependency into your applicaiton
 ```javascript
 	angular.module('yourModule', ['mkBlock']);
 ```
 
-##### Add mkBlocker service to your controller
+=======
+##### Inject mkBlocker service to your controller
 ```javascript
 	.controller('yourCtrl', function(mkBlocker){
 		mkBlocker.blockUI(); // to block the UI
