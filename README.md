@@ -1,9 +1,10 @@
 # mk-blocker
 Angular Loader, Blocker, Unblocker
 
-##### Install with bower	
+##### Include following files
 ```
-    $ bower install mk-blocker
+	js/mk-blocker.js
+	css/mk-blocker.css
 ```
 
 ##### Inject dependency into your applicaiton
