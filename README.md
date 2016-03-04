@@ -12,7 +12,6 @@ Angular Loader, Blocker, Unblocker
 	angular.module('yourModule', ['mkBlock']);
 ```
 
-=======
 ##### Inject mkBlocker service to your controller
 ```javascript
 	.controller('yourCtrl', function(mkBlocker){

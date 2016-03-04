@@ -1,24 +1,35 @@
 {
-  "name": "mkblocker",
-  "version": "0.0.1",
-  "description": "Angular ui Blocker",
+  "name": "mk-blocker",
+  "version": "1.0.0",
+  "description": "A customized Angular UI blocker",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/masoomulhaqs/mkBlocker.git"
+    "url": "git+https://github.com/masoomulhaqs/mk-blocker.git"
   },
   "keywords": [
+    "angular",
+    "js",
     "blocker",
     "ui",
-    "angular"
+    "ui-blocker",
+    "spinner",
+    "loader"
   ],
-  "author": "Masoom",
+  "author": "Masoom Ulhaq S",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/masoomulhaqs/mkBlocker/issues"
+    "url": "https://github.com/masoomulhaqs/mk-blocker/issues"
   },
-  "homepage": "https://github.com/masoomulhaqs/mkBlocker#readme"
+  "homepage": "https://github.com/masoomulhaqs/mk-blocker#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^2.0.2",
+    "gulp-compass": "^2.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.5.3"
+  }
 }
