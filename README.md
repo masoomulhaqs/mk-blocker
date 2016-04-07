@@ -3,8 +3,8 @@ Angular Loader, Blocker, Unblocker
 
 ##### Include following files
 ```
-	js/mk-blocker.js
-	css/mk-blocker.css
+	src/js/mk-blocker.js (or) src/js/mk-blocker.min.js
+	src/css/mk-blocker.css (or) src/css/mk-blocker.min.css
 ```
 
 ##### Inject dependency into your applicaiton

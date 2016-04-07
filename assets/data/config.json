@@ -27,5 +27,9 @@
 		"name": "jsfiddle",
 		"url": "http://jsfiddle.net/user/masoomulhaqs/",
 		"icon": "fa fa-jsfiddle"
+	},{
+		"name": "linkedin",
+		"url": "https://in.linkedin.com/in/masoomulhaqs",
+		"icon": "fa fa-linkedin"
 	}]
 }

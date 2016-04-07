@@ -9,7 +9,9 @@
     <meta name="description" content="{{config.description || 'One more addon by Masoom. Check this out &amp; have fun using :)'}}">
     <meta name="keywords" content="{{config.keywords || 'masoom, app-by-masoom, masoom-github'}}">
 	<link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="export/css/default.css">
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="bower_components/bootstrap-overrides/css/bootstrap-overrides.min.css">
+	<link rel="stylesheet" href="build/css/mk-blocker.css">
 	<style>
 		h1, h2, h3, h4, h5, h6 {
 		  font-weight: 400;
@@ -61,6 +63,9 @@
 		</nav>
 	</header>
 	<div data-ng-view></div>
-	<script src="export/js/default.js"></script>
+	<script src="bower_components/angular/angular.min.js"></script>
+	<script src="bower_components/angular-route/angular-route.min.js"></script>
+	<script src="build/js/mk-blocker.js"></script>
+	<script src="build/js/app.js"></script>
 </body>
 </html>

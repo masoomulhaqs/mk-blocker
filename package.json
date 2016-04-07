@@ -29,7 +29,11 @@
     "gulp": "^3.9.1",
     "gulp-clean-css": "^2.0.2",
     "gulp-compass": "^2.1.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-ng-annotate": "^2.0.0",
     "gulp-rename": "^1.2.2",
-    "gulp-uglify": "^1.5.3"
+    "gulp-uglify": "^1.5.3",
+    "jslint": "^0.9.6",
+    "markdown-to-html": "0.0.11"
   }
 }

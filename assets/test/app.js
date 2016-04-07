@@ -3,14 +3,14 @@ var app = angular.module('app', ['ngRoute', 'mkBlock']);
 app.config(['$routeProvider', function ($routeProvider) {
 	$routeProvider.
 		when('/', {
-			templateUrl: 'fragments/main.html'
+			templateUrl: 'assets/fragments/main.html'
 		}).
 		otherwise({
 			redirectTo: '/'
 	    });
 }]);
 
-app.controller('testCtrl', function($scope, $http, mkBlocker){
+app.controller('testCtrl', ["$scope", "$http", "mkBlocker", function($scope, $http, mkBlocker){
 	mkBlocker.blockUI();
 	$scope.block = function(){
 		mkBlocker.blockUI();
@@ -32,7 +32,7 @@ app.controller('testCtrl', function($scope, $http, mkBlocker){
 
 	$scope.config = {};
 	$scope.initConfig = function(){
-		$http.get('js/config.json')
+		$http.get('assets/data/config.json')
 		.success(function(data){
 			$scope.config = data;
 		}).error(function(data){
@@ -42,4 +42,4 @@ app.controller('testCtrl', function($scope, $http, mkBlocker){
 		});
 	}
 	$scope.initConfig();
-});
+}]);
