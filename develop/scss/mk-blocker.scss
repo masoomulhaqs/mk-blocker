@@ -1,6 +1,6 @@
 @import "compass";
 
-@include keyframes(mk-loader){
+@include keyframes(mk-loader) {
 	0%{
 		@include transform(rotate(0deg));
 	}

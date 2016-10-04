@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-ng-app="app" data-ng-controller="testCtrl">
+<html lang="en" data-ng-app="app" data-ng-controller="TestCtrl">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -8,8 +8,8 @@
 	<title>{{config.title || 'Masoom, A Front End Developer'}}</title>
     <meta name="description" content="{{config.description || 'One more addon by Masoom. Check this out &amp; have fun using :)'}}">
     <meta name="keywords" content="{{config.keywords || 'masoom, app-by-masoom, masoom-github'}}">
-	<link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="export/css/default.css">
+	<link rel="stylesheet" href="./bower_components/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="./build/css/default.css">
 	<style>
 		h1, h2, h3, h4, h5, h6 {
 		  font-weight: 400;
@@ -60,7 +60,7 @@
 			</div>
 		</nav>
 	</header>
-	<div data-ng-view></div>
-	<script src="export/js/default.js"></script>
+	<div data-ng-include="'./assets/fragments/main.html'"></div>
+	<script src="./build/js/default.js"></script>
 </body>
 </html>

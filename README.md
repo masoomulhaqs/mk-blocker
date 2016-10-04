@@ -1,18 +1,28 @@
 # mk-blocker
 Angular Loader, Blocker, Unblocker
 
-##### Include following files
-```
-	src/js/mk-blocker.js (or) src/js/mk-blocker.min.js
-	src/css/mk-blocker.css (or) src/css/mk-blocker.min.css
-```
+---
+
+##### Add below files to your application
+
+* CSS
+	* `mk-blocker.css` *(Uncompressed file)*
+	* `mk-blocker.min.css` *(Compressed file)*
+	
+* JS
+	* `mk-blocker.css` *(Uncompressed file)*
+	* `mk-blocker.min.css` *(Compressed file)*
+
+Note: All files are avaible in `./src` folder.
 
 ##### Inject dependency into your applicaiton
+
 ```javascript
 	angular.module('yourModule', ['mkBlock']);
 ```
 
-##### Inject mkBlocker service to your controller
+##### Usage
+
 ```javascript
 	.controller('yourCtrl', function(mkBlocker){
 		mkBlocker.blockUI(); // to block the UI

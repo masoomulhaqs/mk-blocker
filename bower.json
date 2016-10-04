@@ -17,9 +17,8 @@
     "tests",
     "assets",
     "build",
-    "export",
-    "index.html",
-    "index-backup.html",
+    "develop",
+    "*.html",
     "package.json",
     "config.rb"
   ],

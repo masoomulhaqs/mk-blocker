@@ -2,149 +2,120 @@ var gulp = require('gulp');
 
 /** ### Include Plugins ### **/
 
-var compass = require('gulp-compass');
-var cleanCSS = require('gulp-clean-css');
-var jslint = require('jslint');
-var ngAnnotate = require('gulp-ng-annotate');
-var uglify = require('gulp-uglify');
-var concat = require('gulp-concat');
-var rename = require('gulp-rename');
-var markdown = require('markdown-to-html');
+var compass = require('gulp-compass'),
+	cleanCSS = require('gulp-clean-css'),
+	ngAnnotate = require('gulp-ng-annotate'),
+	uglify = require('gulp-uglify'),
+	concat = require('gulp-concat'),
+	rename = require('gulp-rename'),
+	sourcemaps = require('gulp-sourcemaps'),
+	browserSync = require('browser-sync').create();
 
 /** ### Path Definitions ### **/
-var pathCSS = 'assets/css/';
-var jsMainFile = 'src/mk-blocker.js';
-var jsAppFile = 'assets/js/';
 
-var paths = {
-	defaults: {
-		src: null,
-		productionFolder: "src",
-	},
-	images: {},
-	scss: {
-		takenFolder: "build/scss",
-		files: [
-			"build/scss/*.scss"
-		]
-	},
-	css:{
-		takenFolder: "export/css",
-		files: [
-			"build/css/mk-blocker.css"
-		],
-		exportFolder: "export/css",
-		minfiedFolder: "src",
-		minfiedFolderMath: "src/*.min.css",
-		minifiedFiles : [
-			"bower_components/bootstrap/dist/css/bootstrap.min.css",
-			"bower_components/bootstrap-overrides/css/bootstrap-overrides.min.css",
-			"build/css/mk-blocker.css"
-		]
-	},
-	js:{
-		takenFolder: "build/js",
-		productionFiles: "build/js/mk-blocker.js",
-		files: [	
-			"build/js/mk-blocker.js", 
-			"build/js/app.js"
-		],
-		exportFolder: "export/js",
-		minifiedFiles : [
-			"bower_components/angular/angular.min.js",
-			"bower_components/angular-route/angular-route.min.js",
-			"build/js/mk-blocker.js", 
-			"build/js/app.js"
-		]
-	}
-};
-
-function getDestination(path){
-	console.log(path);
-	if(path){
-		return path;
-	}else if(paths.defaults.productionFolder){
-		return paths.defaults.productionFolder;
-	}
-}
-
-function setExport(path){
-	path = path.split('.');
-	path[0] +=  '.min';
-	return path.join('.');
-}
+var basePaths = {
+		bower: "./bower_components/",
+		develop: "./develop/",
+		build: "./build/",
+		production: "./src/"
+	};
+var	paths = {
+		images: {},
+		compass: {
+			css: basePaths.production, // THIS SHOULD BE SAME AS DEST TO CREATE SOURCEMAPS
+			sass: basePaths.develop + "scss"
+		},
+		scss: {
+			src: basePaths.develop + "scss/*.scss",
+			dest: basePaths.build + "css"
+		},
+		css:{
+			src: [
+				basePaths.bower + "bootstrap/dist/css/bootstrap.min.css",
+				basePaths.bower + "bootstrap-overrides/css/bootstrap-overrides.min.css",
+				basePaths.production + "mk-blocker.css"
+			],
+			dest: basePaths.build + "css"
+		},
+		js:{
+			src: [
+				basePaths.bower + "angular/angular.min.js",
+				basePaths.develop + "js/mk-blocker.js", 
+				basePaths.develop + "js/app.js"
+			],
+			productionSrc: basePaths.develop + "js/mk-blocker.js",
+			dest: basePaths.build + "js"
+		}
+	};
 
 gulp.task("compass", function(){
-	return gulp.src(paths.scss.files)
+	return gulp.src(paths.scss.src)
 		.pipe(compass({
-			css: paths.defaults.productionFolder,
-			sass: paths.scss.takenFolder,
-			image: 'assets',
-			require: 'breakpoint',
-			output_style: 'expanded'
+			css: paths.compass.css,
+			sass: paths.compass.sass,
+			require: ["compass"],
+			output_style: 'expanded',
+			sourcemap: true
 		}))
-		.pipe(gulp.dest("build/css"))
+		.pipe(gulp.dest(basePaths.production))
 		.pipe(rename({
-			suffix : ".min"
+			suffix: ".min"
 		}))
 		.pipe(cleanCSS())
-		.pipe(gulp.dest(paths.defaults.productionFolder));
+		.pipe(gulp.dest(basePaths.production));
 });
 
-gulp.task("concatCSS", ["compass"],function(){
-	console.log(paths.css.minifiedFiles);
-	return	gulp.src(paths.css.minifiedFiles)
-		.pipe(concat("default.css"))
-		.pipe(gulp.dest(paths.css.takenFolder));
+gulp.task("build:css", ["compass"], function(){
+
+	return gulp.src(paths.css.src)
+		.pipe(concat('default.css'))
+		.pipe(cleanCSS())
+		.pipe(gulp.dest(paths.css.dest));
+
 });
 
-gulp.task("unifyJS", function(){
-	return gulp.src(paths.js.files)
+gulp.task("production:js", function(){
+
+	return gulp.src(paths.js.productionSrc)
 		.pipe(ngAnnotate())
-		.pipe(rename({ suffix: ".min"}))
+		.pipe(gulp.dest(basePaths.production))
 		.pipe(uglify())
-		.pipe(concat("default.js"))
-		.pipe(gulp.dest(paths.js.exportFolder));
+		.pipe(rename({
+			suffix: ".min"
+		}))
+		.pipe(gulp.dest(basePaths.production));
+
 });
 
-gulp.task("srcJS", function(){
-	return gulp.src(paths.js.productionFiles)
+gulp.task("build:js", ["production:js"], function(){
+
+	console.log(paths.js.src);
+
+	return gulp.src(paths.js.src)
 		.pipe(ngAnnotate())
-		.pipe(gulp.dest(paths.defaults.productionFolder))
-		.pipe(rename({ suffix: ".min"}))
+		.pipe(concat('default.js'))
 		.pipe(uglify())
-		.pipe(gulp.dest(paths.defaults.productionFolder));
+		.pipe(gulp.dest(paths.js.dest));
 });
 
-gulp.task("segregateJS", ["unifyJS", "srcJS"], function(){
-	return gulp.src(paths.js.minifiedFiles)
-		.pipe(concat("default.js"))
-		.pipe(gulp.dest(paths.js.exportFolder));
+gulp.task("server", function(){
+	browserSync.init({
+		notify: false,
+		server: {
+			baseDir: "./"
+		}
+	});
 });
 
-gulp.task("watchSCSS", function(){
-	gulp.watch(paths.scss.files, ["concatCSS"]);
+gulp.task("build", ["build:css", "build:js"]);
+
+gulp.task("watch", function(){
+
+	gulp.watch(paths.scss.src, ["build:css"]);
+	gulp.watch(paths.js.src, ["build:js"]);
+
 });
 
-gulp.task("watchFiles", function(){
-	gulp.watch(paths.scss.files, ["concatCSS"]);
-	gulp.watch(paths.js.files, ["segregateJS"]);
-});
-
-/** ### Add all the task to default here ### **/
-
-gulp.task("default", ["concatCSS","segregateJS","watchFiles"]);
-
-
-// .pipe(rename(function(path){
-// 		path.basename += ".min";
-// 		path.extname = path.extname;
-// 		// temp = paths.defaults.productionFolder + '/' + path.basename + path.extname;
-// 	}))
-
-
-// if(paths.css.minifiedFiles.indexOf(temp)==-1){
-// 	paths.css.minifiedFiles.push(temp);
-// }
+gulp.task("default", ["server", "build", "watch"]);
 
 

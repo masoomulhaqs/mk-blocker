@@ -1,17 +1,9 @@
-var app = angular.module('app', ['ngRoute', 'mkBlock']);
+var app = angular.module('app', ['mkBlock']);
 
-app.config(['$routeProvider', function ($routeProvider) {
-	$routeProvider.
-		when('/', {
-			templateUrl: 'assets/fragments/main.html'
-		}).
-		otherwise({
-			redirectTo: '/'
-	    });
-}]);
+app.controller('TestCtrl', function($scope, $http, mkBlocker){
 
-app.controller('testCtrl', function($scope, $http, mkBlocker){
 	mkBlocker.blockUI();
+	
 	$scope.block = function(){
 		mkBlocker.blockUI();
 	};
